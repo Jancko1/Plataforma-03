@@ -1,9 +1,10 @@
 import mongoose from "mongoose";
+import { MONGO_URI } from "./Config.JS";
 
 export const conenctDB = async () => {
   try {
     const conn = await mongoose.connect(
-      "mongodb+srv://Pruebas:UwZAdPx0HxnHWKpr@plataforma03-v2.ka75tw6.mongodb.net/test"
+      'mongodb+srv://Pruebas:UwZAdPx0HxnHWKpr@plataforma03-v2.ka75tw6.mongodb.net/test'
     );
     console.log(`Conecion Exitosa ${conn.Connection.name}`);
   } catch {
