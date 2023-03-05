@@ -24,17 +24,19 @@ function Login() {
               />
             </div>
 
-            <div className="field input-field" onClick={() => setshowPwd(!shoePwd)}>
+            <div className="field input-field" >
               <input
                 type={shoePwd ? "text" : "password"}
                 placeholder="Contraseña"
                 className="password"
               />
+              <div onClick={() => setshowPwd(!shoePwd)}>
               {shoePwd ? (
                 <i class="ri-eye-line"></i>
               ) : (
                 <i className="eye-icon ri-eye-off-line ri-eye-line"></i>
               )}
+              </div>
             </div>
 
             <div className="form-link">
