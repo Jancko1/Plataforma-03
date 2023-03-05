@@ -4,10 +4,10 @@ import "remixicon/fonts/remixicon.css";
 //----Styles Login-----
 import "../styles/loginStyle.css";
 //-----Scripts-----
-import "../data/login.js"
-
+import "../data/login.js";
 
 function Login() {
+  const [shoePwd, setshowPwd] = useState(true);
   return (
     <section className="container__login forms">
       <div className="form login">
@@ -24,14 +24,17 @@ function Login() {
               />
             </div>
 
-            <div className="field input-field">
+            <div className="field input-field" onClick={() => setshowPwd(!shoePwd)}>
               <input
-                type="password"
+                type={shoePwd ? "text" : "password"}
                 placeholder="Contraseña"
                 className="password"
               />
-              {/* Mostrar contraseña */}
-              <i className="eye-icon ri-eye-off-line ri-eye-line"></i>
+              {shoePwd ? (
+                <i class="ri-eye-line"></i>
+              ) : (
+                <i className="eye-icon ri-eye-off-line ri-eye-line"></i>
+              )}
             </div>
 
             <div className="form-link">
@@ -43,21 +46,20 @@ function Login() {
             <div className="field button-field">
               <button>Iniciar sesión</button>
             </div>
-
           </form>
-            <div className="form-link">
-              <span>
-                ¿No tienes cuenta?
-                <a href="#" className="link singnup-link">
-                  Registrarse
-                </a>
-              </span>
-            </div>
+          <div className="form-link">
+            <span>
+              ¿No tienes cuenta?
+              <a href="#" className="link singnup-link">
+                Registrarse
+              </a>
+            </span>
+          </div>
         </div>
         {/* Crea una linea divisoria */}
         <div className="line"></div>
         {/* Iniciar con otras Opciones, Facebook, Google, Microsoft */}
-        
+
         {/* FACEBOOK */}
         <div className="media-options">
           <a href="" className="field facebook">
@@ -66,10 +68,10 @@ function Login() {
           </a>
         </div>
 
-         {/* Google */}
-         <div className="media-options">
+        {/* Google */}
+        <div className="media-options">
           <a href="" className="field google">
-          <i className="ri-google-fill"></i>
+            <i className="ri-google-fill"></i>
             <span>Inicar con Google</span>
           </a>
         </div>
@@ -77,14 +79,13 @@ function Login() {
         {/* Microsft */}
         <div className="media-options">
           <a href="" className="field Microsoft">
-          <i className="ri-windows-fill"></i>
+            <i className="ri-windows-fill"></i>
             <span>Inicar con Microsoft</span>
           </a>
         </div>
-      </div>      
+      </div>
 
-      
-    {/* ---------------Sección de registro---------------*/}
+      {/* ---------------Sección de registro---------------*/}
 
       <div className="form signup">
         <div className="form-content">
@@ -120,21 +121,20 @@ function Login() {
             <div className="field button-field">
               <button>Registrarse</button>
             </div>
-
           </form>
-            <div className="form-link">
-              <span>
-                ¿Ya tienes una cuenta?{" "}
-                <a href="#" className="link login-link">
-                  Iniciar Sesión
-                </a>
-              </span>
-            </div>
+          <div className="form-link">
+            <span>
+              ¿Ya tienes una cuenta?{" "}
+              <a href="#" className="link login-link">
+                Iniciar Sesión
+              </a>
+            </span>
+          </div>
         </div>
         {/* Crea una linea divisoria */}
         <div className="line"></div>
         {/* Iniciar con otras Opciones, Facebook, Google, Microsoft */}
-        
+
         {/* FACEBOOK */}
         <div className="media-options">
           <a href="" className="field facebook">
@@ -143,10 +143,10 @@ function Login() {
           </a>
         </div>
 
-         {/* Google */}
-         <div className="media-options">
+        {/* Google */}
+        <div className="media-options">
           <a href="" className="field google">
-          <i className="ri-google-fill"></i>
+            <i className="ri-google-fill"></i>
             <span>Inicar con Google</span>
           </a>
         </div>
@@ -154,7 +154,7 @@ function Login() {
         {/* Microsft */}
         <div className="media-options">
           <a href="" className="field Microsoft">
-          <i className="ri-windows-fill"></i>
+            <i className="ri-windows-fill"></i>
             <span>Inicar con Microsoft</span>
           </a>
         </div>
