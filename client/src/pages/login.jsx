@@ -41,7 +41,7 @@ function Login() {
               </a>
             </div>
             <div className="field button-field">
-              <button>Login</button>
+              <button>Iniciar sesión</button>
             </div>
 
           </form>
