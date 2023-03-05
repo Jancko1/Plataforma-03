@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "node --watch server/index.js"
+    "dev": "nodemon server/index.js"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +16,7 @@
     "graphql": "^16.6.0",
     "graphql-tag": "^2.12.6",
     "mongodb": "^5.1.0",
-    "mongoose": "^6.10.0"
+    "mongoose": "^6.10.0",
+    "nodemon": "^2.0.21"
   }
 }
