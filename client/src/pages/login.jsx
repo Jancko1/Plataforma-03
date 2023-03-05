@@ -7,7 +7,7 @@ import "../styles/loginStyle.css";
 import "../data/login.js";
 
 function Login() {
-  const [shoePwd, setshowPwd] = useState(true);
+  const [shoePwd, setshowPwd] = useState(false);
   return (
     <section className="container__login forms">
       <div className="form login">
