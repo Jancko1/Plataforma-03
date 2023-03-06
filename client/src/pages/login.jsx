@@ -66,7 +66,7 @@ function Login() {
         <div className="media-options">
           <a href="" className="field facebook">
             <i className="ri-facebook-circle-fill"></i>
-            <span>Inicar con Facebook</span>
+            <span>Iniciar con Facebook</span>
           </a>
         </div>
 
@@ -74,7 +74,7 @@ function Login() {
         <div className="media-options">
           <a href="" className="field google">
             <i className="ri-google-fill"></i>
-            <span>Inicar con Google</span>
+            <span>Iniciar con Google</span>
           </a>
         </div>
 
@@ -82,7 +82,7 @@ function Login() {
         <div className="media-options">
           <a href="" className="field Microsoft">
             <i className="ri-windows-fill"></i>
-            <span>Inicar con Microsoft</span>
+            <span>Iniciar con Microsoft</span>
           </a>
         </div>
       </div>

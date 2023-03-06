@@ -12,6 +12,7 @@ export const typeDefs = gql`
 #----------------Inicio Query de posts---------------------------------
   }
 
+
   type Mutation {
     createProjet(titulo: String, description: String): Project
     deleteProject(_id: ID!): Project
@@ -19,8 +20,6 @@ export const typeDefs = gql`
 
 #----------------Inicio Mutation de posts-------------------------------
     createPost(titulo: String, descripcion: String, PostId: ID): Post
-
-
 #----------------fin Mutation de posts-------------------------------
   }
   type Project {

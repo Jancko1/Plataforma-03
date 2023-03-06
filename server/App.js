@@ -10,7 +10,7 @@ export async function startApolloServe(typeDefs, resolvers) {
 
 
   app.get('/', (req, res) => {
-    res.send('Hola amorcito')
+    res.send('Hola')
   })
 
   const httpServer = http.createServer(app);
@@ -31,6 +31,6 @@ export async function startApolloServe(typeDefs, resolvers) {
       resolver
     )
   );
-  console.log("✦ GraphQL on port: http://localhost:4000/graphql ✦");
-  console.log("✦ REST on port: http://localhost:4000 ✦");
+  console.log("🚀  GraphQL on port: http://localhost:4000/graphql ✦");
+  console.log(`🚀  Server ready at http://localhost:4000`);
 }
