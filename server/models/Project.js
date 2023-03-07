@@ -7,7 +7,7 @@ const ProjectSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    description: {
+    image: {
       type: String,
     },
   },

@@ -1,11 +1,13 @@
 import Project from "../models/Project.js";
 import Post from "../models/Posts.js";
 
+
 export const resolvers = {
   Query: {
     hello: () => "Hola amor",
     projects: async () => await Project.find(),
     project: async (_, { _id }) => await Project.findById(_id),
+
     //---------------------------Query post-------------------------------
 
     posts: async () => await Post.find(),
@@ -29,8 +31,8 @@ export const resolvers = {
       return updatedProject;
     },
 
-    createPost: async (_, { titulo, descripcion }) => {
-      const post = new Post({ titulo, descripcion });
+    createPost: async (_, { titulo, descripcion, Imagenes }) => {
+      const post = new Post({ titulo, descripcion, Imagenes });
       const savedPost = await post.save();
       return savedPost;
     },

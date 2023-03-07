@@ -3,9 +3,9 @@ import { gql } from "@apollo/client";
 export const GET_POST = gql`
   {
     posts {
-      _id
       titulo
       descripcion
+      Imagenes
     }
   }
 `;

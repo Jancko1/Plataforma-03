@@ -1,4 +1,4 @@
-import { Timestamp } from "mongodb";
+
 import mongoose from "mongoose";
 
 const PostSchema = new mongoose.Schema(
@@ -11,12 +11,14 @@ const PostSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    Imagenes: {
+      type: String,
+    }
+    ,
     PostId: {
       type: mongoose.Schema.Types.ObjectId,
     },
   },
-  {
-    timestamps: true,
-  }
+
 );
 export default mongoose.model("Post", PostSchema);
