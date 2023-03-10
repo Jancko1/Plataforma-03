@@ -87,6 +87,9 @@ function Login() {
         </div>
       </div>
 
+
+      
+
       {/* ---------------Sección de registro---------------*/}
 
       <div className="form signup">

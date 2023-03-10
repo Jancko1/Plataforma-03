@@ -20,7 +20,7 @@
     align-items: center;
     justify-content: center;
     background-image: linear-gradient(to left bottom, #bce3ff, #9bd2fc, #79c0f9, #55adf6, #229bf2);
-    column-gap: 30px;
+    column-gap: 0px;
 }
 /*-----Clase Container Form-----*/
 .form{
@@ -31,7 +31,7 @@
     background: var(--background-login);
     border-radius: 6px;
 }
-/* Cambio de Login a Register */
+/* ------------------------Cambio de Login a Register------------------------ */
 .form.signup{
     opacity: 0;
     pointer-events: none;
@@ -202,6 +202,15 @@ a.Microsoft span{
     color: var(--background-login);
 }
 
+@media screen and (max-width:1400px){
+    .container__login{
+        height: 106vh;
+       
+    }
+    .line{
+        margin: 25px 0px;
+    }
+}
 
 @media screen and (max-width:400px){
     .form{
