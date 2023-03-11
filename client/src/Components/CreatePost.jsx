@@ -4,7 +4,39 @@ import { CREATE_POST, GET_POST } from "../GraphQL/posts";
 import axios from "axios";
 
 const CreatePost = () => {
-  const [cargando, setCargando] = useState(false);
+  const [post, setPost] = useState({
+    titulo: "",
+    descripcion: "",
+    imagenes: "",
+  });
+
+  const [createPosts] = useMutation(CREATE_POST, {
+    refetchQueries: [
+      {
+        query: GET_POST,
+      },
+      "Get posts",
+    ],
+  });
+
+  const handelChange = ({ target: { name, value } }) => {
+    setPost({
+      ...post,
+      [name]: value,
+    });
+  };
+  const handelSubmitted = (e) => {
+    e.preventDefault();
+    createPosts({
+      variables: {
+        titulo: post.titulo,
+        descripcion: post.descripcion,
+        imagenes: url,
+      },
+    });
+  };
+
+  const [loading, setLoading] = useState(false);
   const [url, setUrl] = useState("");
 
   const convertBase64 = (file) => {
@@ -23,26 +55,26 @@ const CreatePost = () => {
   };
 
   function uploadSingleImage(base64) {
-    setCargando(true);
+    setLoading(true);
     axios
-      .post("http://localhost:5000/uploadImage", { image: base64 })
+      .post("https://imagenescircuito.onrender.com/uploadImage", { image: base64 })
       .then((res) => {
         setUrl(res.data);
         alert("Image uploaded Succesfully");
       })
-      .then(() => setCargando(false))
+      .then(() => setLoading(false))
       .catch(console.log);
   }
 
   function uploadMultipleImages(images) {
-    setCargando(true);
+    setLoading(true);
     axios
-      .post("http://localhost:5000/uploadMultipleImages", { images })
+      .post("https://imagenescircuito.onrender.com/uploadMultipleImages", { images })
       .then((res) => {
         setUrl(res.data);
         alert("Image uploaded Succesfully");
       })
-      .then(() => setCargando(false))
+      .then(() => setLoading(false))
       .catch(console.log);
   }
 
@@ -64,61 +96,35 @@ const CreatePost = () => {
     uploadMultipleImages(base64s);
   };
 
-  const [post, setPost] = useState({
-    titulo: "",
-    descripcion: "",
-    Imagenes: [url],
-  });
-
-  const [createPosts, { loading, error }] = useMutation(CREATE_POST, {
-    refetchQueries: [
-      {
-        query: GET_POST,
-      },
-      "Get posts",
-    ],
-  });
-
-  const handelChange = ({ target: { name, value } }) => {
-    setPost({
-      ...post,
-      [name]: value,
-    });
-  };
-  const handelSubmitted = (e) => {
-    e.preventDefault();
-    createPosts({
-      variables: {
-        titulo: post.titulo,
-        descripcion: post.descripcion,
-        Imagenes: [url],
-      },
-    });
-    console.log(post);
-  };
+  function UploadInput() {
+    return (
+      <div>
+        <label>
+          <input
+            onChange={uploadImage}
+            id="dropzone-file"
+            type="file"
+            multiple
+          />
+        </label>
+      </div>
+    );
+  }
   return (
-    <form onSubmit={handelSubmitted}>
-      {error && <p>{error.message}</p>}
-      <input
-        type="text"
-        name="titulo"
-        placeholder="Ingrese el titulo de la publicacion"
-        onChange={handelChange}
-      />
-      <textarea
-        name="descripcion"
-        rows="3"
-        value={"Ingrese la descripcion de la publicacion"}
-        placeholder="Ingrese la descripcion de la prublicacion"
-        onChange={handelChange}
-      ></textarea>
-      <input type="file" name="Imagenes" onChange={uploadImage} />
-      <button
-        disabled={!post.descripcion || !post.titulo || loading || cargando}
-      >
-        Publicar
-      </button>
-    </form>
+    <div>
+      <br />
+      <div>{loading ? <div></div> : <UploadInput />}</div>
+      <form onSubmit={handelSubmitted}>
+        <input type="text" name="titulo" id="" onChange={handelChange} />
+        <textarea
+          name="descripcion"
+          id=""
+          rows="3"
+          onChange={handelChange}
+        ></textarea>
+        <button>enviar</button>
+      </form>
+    </div>
   );
 };
 

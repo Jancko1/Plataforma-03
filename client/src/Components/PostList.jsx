@@ -11,7 +11,6 @@ const PostList = () => {
   if (error) {
     <p>Error</p>;
   }
-  console.log(data);
   return (
     <div>
       {data.posts.map((post) => (
