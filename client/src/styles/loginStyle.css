@@ -1,220 +1,230 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&display=swap');
-:root{
-    --font-color:#232836;
-    --background-login:#fff;
-    --gray-color:#cacaca;
-    --link-color:#0171d3;
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&display=swap");
+:root {
+  --font-color: #232836;
+  --background-login: #fff;
+  --gray-color: #b4b2b2;
+  --link-color: #0171d3;
 }
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 /*Clase Contenedor*/
-.container__login{
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-image: linear-gradient(to left bottom, #bce3ff, #9bd2fc, #79c0f9, #55adf6, #229bf2);
-    column-gap: 0px;
+.container__login {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(
+    to left bottom,
+    #bce3ff,
+    #9bd2fc,
+    #79c0f9,
+    #55adf6,
+    #229bf2
+  );
+  column-gap: 0px;
 }
 /*-----Clase Container Form-----*/
-.form{
-    position: absolute;
-    max-width: 430px;
-    width: 100%;
-    padding: 30px;
-    background: var(--background-login);
-    border-radius: 6px;
+.form {
+  position: absolute;
+  max-width: 430px;
+  width: 100%;
+  padding: 30px;
+/* From https://css.glass */
+background: rgba(255, 255, 255, 0.62);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(6.4px);
+-webkit-backdrop-filter: blur(6.4px);
 }
 /* ------------------------Cambio de Login a Register------------------------ */
-.form.signup{
-    opacity: 0;
-    pointer-events: none;
+.form.signup {
+  opacity: 0;
+  pointer-events: none;
 }
-.forms.show-signup .form.signup{
-    opacity: 1;
-    pointer-events: auto;
+.forms.show-signup .form.signup {
+  opacity: 1;
+  pointer-events: auto;
 }
-.forms.show-signup .form.login{
-    opacity: 0;
-    pointer-events: none;
+.forms.show-signup .form.login {
+  opacity: 0;
+  pointer-events: none;
 }
 /*-----Encabezado del Login-----*/
-header{
-    font-size: 28px;
-    font-weight: 600;
-    color: var(--font-color);
-    text-align: center;
+header {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--font-color);
+  text-align: center;
 }
 /*Etiqueta Form*/
-form{
-    margin-top: 30px;
+form {
+  margin-top: 30px;
 }
 /*Modifica el contenido DIV del From*/
-.form .field{
-    height: 50px;
-    width: 100%;  
-    margin-top: 20px;
-    position: relative;
-    border-radius: 6px;
+.form .field {
+  height: 50px;
+  width: 100%;
+  margin-top: 20px;
+  position: relative;
+  border-radius: 6px;
 }
 /*Ajusta el tamaño de la caja de texto inputs y el boton*/
 .field input,
-.field button{
-    height: 100%;
-    width: 100%;
-    border: none;
-    font-size: 16px;
-    font-weight:400 ;
-    border-radius: 6px;
+.field button {
+  height: 100%;
+  width: 100%;
+  border: none;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 6px;
 }
-.field input{
-    /*Desactiva el borde al darle click al input*/
-    outline: none;
-    padding: 0px 15px;
-    border: 1px solid var(--gray-color);
+.field input {
+  /*Desactiva el borde al darle click al input*/
+  outline: none;
+  padding: 0px 15px;
+  border: 1px solid var(--gray-color);
 }
 /*Al darle click activa un border bottom*/
-.field input:focus{
-    border-bottom-width: 3px;
+.field input:focus {
+  border-bottom-width: 3px;
 }
 
 /*Ajusta el icono del "HIDE EYE"*/
 .ri-eye-line,
-.ri-eye-off-line{
-    position: absolute;
-    font-size: 18px;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-    color: var(--gray-color);
-    cursor: pointer;
-    padding: 5px;
+.ri-eye-off-line {
+  position: absolute;
+  font-size: 18px;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  color: var(--gray-color);
+  cursor: pointer;
+  padding: 5px;
 }
 /*Ajusta el fondo del Button*/
-.field button{
-    background-color: var(--link-color);
-    color: var(--background-login);
-    transition: all 0.3s ease;
+.field button {
+  background-color: var(--link-color);
+  color: var(--background-login);
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
-.field button:hover{
-    background-color: #016dcb;
+.field button:hover {
+  background-color: #016dcb;
 }
 /*Estilos a los links*/
-.form-link{
-    text-align: center;
-    margin-top: 10px;
+.form-link {
+  text-align: center;
+  margin-top: 10px;
 }
 /*Ajusta El span y la etiqueta a de la clase correspondiente*/
 .form-link span,
-.form-link a{
-    font-size: 14px;
-    font-weight: 400;
-    color: var(--font-color);
+.form-link a {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--font-color);
 }
 /*Clase a generales */
-.form a{
-    color: var(--link-color);
-    text-decoration: none;
+.form a {
+  color: var(--link-color);
+  text-decoration: none;
 }
-.form-content a:hover{
-    text-decoration: underline;
+.form-content a:hover {
+  text-decoration: underline;
 }
-.line{
-    position: relative;
-    height: 1px;
-    width: 100%;
-    margin: 36px 0px;
-    background-color: var(--gray-color);
+.line {
+  position: relative;
+  height: 1px;
+  width: 100%;
+  margin: 36px 0px;
+  background-color: var(--gray-color);
 }
 /*Añade el O en la linea con la propiedad ::before*/
-.line::before{
-    content: 'O';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background:var(--background-login);
-    color: var(--font-color);
-    padding: 0px 15px;
+.line::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  color: var(--font-color);
+  padding: 0px 15px;
 }
 
-.media-options a{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.media-options a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-a.facebook{
-    color: var(--background-login);
-    background-color: #4267b2;   
+a.facebook {
+  color: var(--background-login);
+  background-color: #4267b2;
 }
-a.facebook .ri-facebook-circle-fill{
-    height: 25px;
-    width: 20px;
-    color: var(--background-login);
-    font-size: 25px;
-    border-radius: 50%;
-    align-items: center;
-    justify-content: center;
+a.facebook .ri-facebook-circle-fill {
+  height: 25px;
+  width: 20px;
+  color: var(--background-login);
+  font-size: 25px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
 }
 .ri-facebook-circle-fill,
 .ri-google-fill,
-.ri-windows-fill{
-    position: absolute;
-    top: 50%;
-    left: 15px;
-    transform: translateY(-50% );
+.ri-windows-fill {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
 }
-.google{
+
+.google {
+    background-color: var(--background-login);
     border: 1px solid var(--gray-color);
 }
-.ri-google-fill{
-    font-size: 25px;
-    color: var(--font-color);
+.ri-google-fill {
+  font-size: 25px;
+  color: var(--font-color);
 }
 
-
-a.google span{
-    font-weight: 500;
-    opacity: 0.6;
-    color:  var(--font-color);
+a.google span {
+  font-weight: 500;
+  color: var(--font-color);
 }
 
-.ri-windows-fill{
-    font-size: 25px;
-    color: var(--background-login);
+.ri-windows-fill {
+  font-size: 25px;
+  color: var(--background-login);
 }
 
-.Microsoft{
-    border: 1px solid var(--font-color);
-    background-color: var(--font-color);
+.Microsoft {
+  border: 1px solid var(--font-color);
+  background-color: var(--font-color);
 }
 
-a.Microsoft span{
-    font-weight: 500;
-    opacity: 0.9;
-    color: var(--background-login);
+a.Microsoft span {
+  font-weight: 500;
+  opacity: 0.9;
+  color: var(--background-login);
 }
 
-@media screen and (max-width:1400px){
-    .container__login{
-        height: 106vh;
-       
-    }
-    .line{
-        margin: 25px 0px;
-    }
+@media screen and (max-width: 1400px) {
+  .container__login {
+    height: 106vh;
+  }
+  .line {
+    margin: 25px 0px;
+  }
 }
 
-@media screen and (max-width:400px){
-    .form{
-        padding: 15px 10px;
-    }
+@media screen and (max-width: 400px) {
+  .form {
+    padding: 15px 10px;
+  }
 }

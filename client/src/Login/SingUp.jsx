@@ -12,27 +12,36 @@ const SingUp = () => {
           <form action="#">
             <div className="field input-field">
               <input
+                required
                 type="email"
                 placeholder="Correo Electronico"
                 className="input"
               />
             </div>
-
+            {/*---------------CONTRASEÑA---------------*/}
             <div className="field input-field">
               <input
-                type="password"
+                required
+                type={shoePwd ? "text" : "password"}
                 placeholder="Contraseña"
                 className="password"
               />
             </div>
-            {/* Confirmar Contraseña */}
+            {/* ---------------Confirmar Contraseña--------------- */}
             <div className="field input-field">
               <input
-                type="password"
-                placeholder="Contraseña"
+                type={shoePwd ? "text" : "password"}
+                placeholder="Confirmar contraseña"
                 className="password"
+                required
               />
-              <i className="eye-icon ri-eye-off-line ri-eye-line"></i>
+              <div onClick={() => setshowPwd(!shoePwd)}>
+                {shoePwd ? (
+                  <i class="ri-eye-line"></i>
+                ) : (
+                  <i className="eye-icon ri-eye-off-line ri-eye-line"></i>
+                )}
+              </div>
             </div>
             {/* BUTTON para registrarse */}
             <div className="field button-field">

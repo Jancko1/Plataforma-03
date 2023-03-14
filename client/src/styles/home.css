@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&display=swap');
+
+body{
+    
+    background: #3e303f;
+    font-family: 'Poppins', sans-serif;
+}
+
+*{ 
+    box-sizing: border-box;
+}
+
+.banner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url("../img/fondoPrueba.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    height: 600px;
+    padding: 0 10%;
+    transform: 0.1s linear;
+
+}

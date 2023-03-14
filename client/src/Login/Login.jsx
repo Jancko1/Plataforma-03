@@ -17,19 +17,23 @@ const Login = () => {
           <header>Iniciar Sesión</header>
           {/* Petición de Datos */}
           <form action="#">
+             {/*---------------EMAIL---------------*/}
             <div className="field input-field">
               <input
                 type="email"
                 placeholder="Correo Electronico"
                 className="input"
+                required
               />
             </div>
 
+            {/*---------------CONTRASEÑA---------------*/}
             <div className="field input-field">
               <input
                 type={shoePwd ? "text" : "password"}
                 placeholder="Contraseña"
                 className="password"
+                required
               />
               <div onClick={() => setshowPwd(!shoePwd)}>
                 {shoePwd ? (
