@@ -4,8 +4,11 @@ import {
   ApolloProvider,
   gql,
 } from "@apollo/client";
-
+//-----LOGIN-----//
 import Login from "./pages/login";
+//-----REGISTER-----//
+import Registro from "./pages/register";
+//-----HOME-----//
 import Home from "./pages/Home";
 import { BrowserRouter, Routes, Route, Router } from "react-router-dom";
 
@@ -22,6 +25,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Registro />} />
           </Routes>
         </BrowserRouter>
       </ApolloProvider>
