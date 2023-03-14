@@ -5,7 +5,7 @@ import PostList from "../Components/PostList";
 const Home = () => {
   return (
     <div>
-      <a href="/login">Iniciar session</a>
+      <a href="/singUp">Iniciar session</a>
       <PostList />
       <CreatePost/>
     </div>

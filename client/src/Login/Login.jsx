@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 //-----Remix Icons-----
 import "remixicon/fonts/remixicon.css";
 //----Styles Login-----
@@ -6,7 +7,7 @@ import "../styles/loginStyle.css";
 //-----Scripts-----
 import "../data/login.js";
 
-function Login() {
+const Login = () => {
   const [shoePwd, setshowPwd] = useState(false);
   return (
     <section className="container__login forms">
@@ -24,18 +25,18 @@ function Login() {
               />
             </div>
 
-            <div className="field input-field" >
+            <div className="field input-field">
               <input
                 type={shoePwd ? "text" : "password"}
                 placeholder="Contraseña"
                 className="password"
               />
               <div onClick={() => setshowPwd(!shoePwd)}>
-              {shoePwd ? (
-                <i class="ri-eye-line"></i>
-              ) : (
-                <i className="eye-icon ri-eye-off-line ri-eye-line"></i>
-              )}
+                {shoePwd ? (
+                  <i class="ri-eye-line"></i>
+                ) : (
+                  <i className="eye-icon ri-eye-off-line ri-eye-line"></i>
+                )}
               </div>
             </div>
 
@@ -52,7 +53,7 @@ function Login() {
           <div className="form-link">
             <span>
               ¿No tienes cuenta?
-              <Link to="./register" className="link singnup-link">
+              <Link to="/singUp" className="link singnup-link">
                 Registrarse
               </Link>
             </span>
@@ -89,6 +90,6 @@ function Login() {
       <script src="login.js"></script>
     </section>
   );
-}
+};
 
 export default Login;

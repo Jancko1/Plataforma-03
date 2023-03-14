@@ -5,9 +5,9 @@ import {
   gql,
 } from "@apollo/client";
 //-----LOGIN-----//
-import Login from "./pages/login";
+import Login from "./Login/Login";
 //-----REGISTER-----//
-import Registro from "./pages/register";
+import SingUp from "./Login/SingUp";
 //-----HOME-----//
 import Home from "./pages/Home";
 import { BrowserRouter, Routes, Route, Router } from "react-router-dom";
@@ -24,8 +24,8 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Registro />} />
+            <Route path="/singIn" element={<Login />} />
+            <Route path="/singUp" element={<SingUp />} />
           </Routes>
         </BrowserRouter>
       </ApolloProvider>
