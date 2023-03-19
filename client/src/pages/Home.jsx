@@ -5,6 +5,7 @@ import PostList from "../Components/PostList";
 import { useState, useEffect } from "react";
 import "../styles/home.css";
 import Login from "../Login/Login";
+import Profile from "../Components/Profile";
 
 
 
@@ -33,7 +34,7 @@ export const Home = () => {
       <br />
       <PostList />
       <CreatePost />
-
+        <Profile/>
       </section>
     </>
   );
