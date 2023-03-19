@@ -4,6 +4,9 @@ import PostList from "../Components/PostList";
 //Parallax.js
 import { useState, useEffect } from "react";
 import "../styles/home.css";
+import Login from "../Login/Login";
+
+
 
 
 
@@ -26,9 +29,11 @@ export const Home = () => {
         className="banner"
       >
         <h2>Parallax</h2>
-      <a href="/singUp">Iniciar session</a>
+      <Login>Login</Login>
+      <br />
       <PostList />
       <CreatePost />
+
       </section>
     </>
   );
