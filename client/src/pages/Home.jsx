@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import "../styles/home.css";
 import Login from "../Login/Login";
 import Profile from "../Components/Profile";
-
+import LogoutButton from "../Components/LogoutButton"
 
 
 
@@ -31,6 +31,8 @@ export const Home = () => {
       >
         <h2>Parallax</h2>
       <Login>Login</Login>
+      <br />
+      <LogoutButton>Deslogearse</LogoutButton>
       <br />
       <PostList />
       <CreatePost />
