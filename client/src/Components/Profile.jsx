@@ -22,7 +22,7 @@ const Profile = () => {
           <div className="perfil-usuario-header">
             <div className="perfil-usuario-portada">
               <div className="perfil-usuario-avatar">
-                  <img src="https://res.cloudinary.com/dxv9tloma/image/upload/v1679323064/tjtvug05eawiepxf85nj.png" alt="" />
+                  <img src={user.picture} alt={user.name} />
               </div>
               <button type="button" className="boton-portada">
                 <i className="far fa-image"></i> Cambiar fondo
