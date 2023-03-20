@@ -36,7 +36,6 @@ export const Home = () => {
       <br />
       <PostList />
       <CreatePost />
-        <Profile/>
       </section>
     </>
   );
