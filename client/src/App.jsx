@@ -10,6 +10,9 @@ import {
 import SingUp from "./Login/SingUp";
 //-----HOME-----//
 import Home from "./pages/Home";
+
+//-----Dashboard-----//
+import Profile from "./Components/Profile";
 import { BrowserRouter, Routes, Route, Router } from "react-router-dom";
 
 const client = new ApolloClient({
@@ -18,6 +21,7 @@ const client = new ApolloClient({
 });
 
 function App() {
+   
   return (
     <>
       <ApolloProvider client={client}>
@@ -25,6 +29,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/singUp" element={<SingUp />} />
+            <Route path="/dashboard" element={<Profile />} />
           </Routes>
         </BrowserRouter>
       </ApolloProvider>

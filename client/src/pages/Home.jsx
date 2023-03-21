@@ -7,15 +7,15 @@ import LogoutButton from "../Components/LogoutButton";
 export const Home = () => {
   return (
     <>
-
-      <br />
-      <LogoutButton>Deslogearse</LogoutButton>
-      <br />
-      <CreatePost />
-      <PostList />
-      <Profile />
+            <a href="/dashboard"></a>
+            <br />
+            <LogoutButton>Deslogearse</LogoutButton>
+            <br />
+            <CreatePost />
+            <PostList />
+            <Profile />
+          <Login>Login</Login>
     </>
   );
 };
-
 export default Home;
