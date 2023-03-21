@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { CREATE_POST, GET_POST } from "../GraphQL/posts";
 import axios from "axios";
+//Bootstrap
+import "react-bootstrap";
 
 const CreatePost = () => {
   const [post, setPost] = useState({
@@ -57,7 +59,9 @@ const CreatePost = () => {
   function uploadSingleImage(base64) {
     setLoading(true);
     axios
-      .post("https://imagenescircuito.onrender.com/uploadImage", { image: base64 })
+      .post("https://imagenescircuito.onrender.com/uploadImage", {
+        image: base64,
+      })
       .then((res) => {
         setUrl(res.data);
         alert("Image uploaded Succesfully");
@@ -69,7 +73,9 @@ const CreatePost = () => {
   function uploadMultipleImages(images) {
     setLoading(true);
     axios
-      .post("https://imagenescircuito.onrender.com/uploadMultipleImages", { images })
+      .post("https://imagenescircuito.onrender.com/uploadMultipleImages", {
+        images,
+      })
       .then((res) => {
         setUrl(res.data);
         alert("Image uploaded Succesfully");
@@ -111,19 +117,20 @@ const CreatePost = () => {
     );
   }
   return (
-    <div>
-      <br />
-      <div>{loading ? <div></div> : <UploadInput />}</div>
-      <form onSubmit={handelSubmitted}>
-        <input type="text" name="titulo" id="" onChange={handelChange} />
-        <textarea
-          name="descripcion"
-          id=""
-          rows="3"
-          onChange={handelChange}
-        ></textarea>
-        <button>enviar</button>
-      </form>
+    <div className="col-md-6">
+      <div className="container-style-main">
+        <div>{loading ? <div></div> : <UploadInput />}</div>
+        <form onSubmit={handelSubmitted}>
+          <input type="text" name="titulo" id="" onChange={handelChange} />
+          <textarea
+            name="descripcion"
+            id=""
+            rows="3"
+            onChange={handelChange}
+          ></textarea>
+          <button className="uploadButton">enviar</button>
+        </form>
+      </div>
     </div>
   );
 };

@@ -5,7 +5,7 @@ import {
   gql,
 } from "@apollo/client";
 //-----LOGIN-----//
-import Login from "./Login/Login";
+
 //-----REGISTER-----//
 import SingUp from "./Login/SingUp";
 //-----HOME-----//
@@ -24,7 +24,6 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/singIn" element={<Login />} />
             <Route path="/singUp" element={<SingUp />} />
           </Routes>
         </BrowserRouter>

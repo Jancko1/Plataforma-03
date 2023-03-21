@@ -1,10 +1,13 @@
 import React from "react";
-import '../styles/loading.css';
+import "../styles/loading.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Loading = () => {
   return (
-    <div className="loader-container">
-      <div className="spinner"></div>
+    <div class="d-flex justify-content-center">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
     </div>
   );
 };
