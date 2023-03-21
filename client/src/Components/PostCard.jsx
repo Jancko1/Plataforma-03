@@ -1,11 +1,17 @@
 import React from "react";
 //REMIX ICONS
 import "remixicon/fonts/remixicon.css";
+
+
+
+import { useAuth0 } from "@auth0/auth0-react";
 //Bootstrap
 import "react-bootstrap";
 //STYLES CSS
 import "../styles/postCard.css";
+
 const PostCard = ({ post }) => {
+  const { user, isAuthenticated, isLoading } = useAuth0();
   return (
     <div key={post._id} className="container mt-5 ">
       <div className="row justify-content-center col-12">
@@ -15,7 +21,7 @@ const PostCard = ({ post }) => {
               <div className="d-flex align-items-center mb-3 text-center">
                 {/* Imagen de la persona usuaria */}
                 <img
-                  src=""
+                  src={user.picture}
                   alt="Persona"
                   className="rounded-circle me-3"
                   width="50"
