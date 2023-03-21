@@ -22,7 +22,7 @@ const LogoutButton = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#features">Perfil</Nav.Link>
+            <Nav.Link href="/dashboard">Perfil</Nav.Link>
             <NavDropdown title="Instituciones" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">

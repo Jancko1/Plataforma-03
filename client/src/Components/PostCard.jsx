@@ -1,11 +1,17 @@
 import React from "react";
 //REMIX ICONS
 import "remixicon/fonts/remixicon.css";
+
+
+
+import { useAuth0 } from "@auth0/auth0-react";
 //Bootstrap
 import "react-bootstrap";
 //STYLES CSS
 import "../styles/postCard.css";
+
 const PostCard = ({ post }) => {
+  const { user, isAuthenticated, isLoading } = useAuth0();
   return (
     <div key={post._id} className="container mt-5  ">
       <div className="row justify-content-center ">
@@ -14,8 +20,8 @@ const PostCard = ({ post }) => {
             <div className="card-body pb-3">
               <div className="d-flex align-items-center user_content">
                 {/* Imagen de la persona usuaria */}
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Vombatus_ursinus_-Maria_Island_National_Park.jpg/1200px-Vombatus_ursinus_-Maria_Island_National_Park.jpg"
+                <img                 
+                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Vombatus_ursinus_-Maria_Island_National_Park.jpg/1200px-Vombatus_ursinus_-Maria_Island_National_Park.jpg"
                   alt="Persona"
                   className="rounded-circle me-3"
                   width="60"
