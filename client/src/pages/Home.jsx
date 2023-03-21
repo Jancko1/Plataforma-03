@@ -5,9 +5,9 @@ import PostList from "../Components/PostList";
 import { useState, useEffect } from "react";
 import "../styles/home.css";
 import Login from "../Login/Login";
-import Profile from "../Components/Profile";
-import LogoutButton from "../Components/LogoutButton"
 
+import LogoutButton from "../Components/LogoutButton"
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 
@@ -21,6 +21,7 @@ const useParallaxBanner = (setScrollPosition) => {
 export const Home = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   useParallaxBanner(setScrollPosition);
+  const {isAuthenticated} = useAuth0();
   return (
     <>
       <section
@@ -30,12 +31,16 @@ export const Home = () => {
         className="banner"
       >
         <h2>Parallax</h2>
-      <Login>Login</Login>
+      {isAuthenticated ?(<>
+        <a href="/dashboard"></a>
       <br />
       <LogoutButton>Deslogearse</LogoutButton>
       <br />
       <PostList />
       <CreatePost />
+      </>):(
+        <Login>Login</Login>)}
+     
       </section>
     </>
   );
