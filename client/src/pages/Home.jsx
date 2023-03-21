@@ -14,7 +14,6 @@ export const Home = () => {
             <CreatePost />
             <PostList />
             <Profile />
-          <Login>Login</Login>
     </>
   );
 };
