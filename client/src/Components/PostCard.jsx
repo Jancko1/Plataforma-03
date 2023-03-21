@@ -7,25 +7,27 @@ import "react-bootstrap";
 import "../styles/postCard.css";
 const PostCard = ({ post }) => {
   return (
-    <div key={post._id} className="container mt-5 ">
-      <div className="row justify-content-center col-12">
+    <div key={post._id} className="container mt-5  ">
+      <div className="row justify-content-center ">
         <div className="col-md-8">
           <div className="card mb-3">
             <div className="card-body pb-3">
-              <div className="d-flex align-items-center mb-3 text-center">
+              <div className="d-flex align-items-center user_content">
                 {/* Imagen de la persona usuaria */}
                 <img
-                  src=""
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Vombatus_ursinus_-Maria_Island_National_Park.jpg/1200px-Vombatus_ursinus_-Maria_Island_National_Park.jpg"
                   alt="Persona"
                   className="rounded-circle me-3"
-                  width="50"
+                  width="60"
+                  height="60"
                 />
-                <div>
-                  <h5 className="card-title">Nombre de usuario</h5>
+                <div className="text-content">
+                  <h5 className="card-title mt-5">Nombre de usuario</h5>
+                  <h1 className="card-title">{post.titulo}</h1>
                   <p className="card-text">{post.descripcion}</p>
                 </div>
               </div>
-              <div className="d-flex justify-content-center">
+              <div className="d-flex justify-content-center mt-2">
                 <img src={post.Imagenes} alt="" className="img-fluid mb-3 " />
               </div>
               <hr />

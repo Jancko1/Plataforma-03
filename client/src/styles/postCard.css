@@ -1,14 +1,78 @@
+/*Tipografia*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap');
+
+:root{
+    --color-links:#19A7CE;
+    --color-font:#181818;
+}
+
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+
 .icons a{
     text-decoration: none;
-    color: #272727;
-    margin-left: 1rem;
+    color: var(--color-font);
+    margin-left: 1.5rem;
+    font-size: 1.2rem;
     transition: ease all 300ms;
 }
 .icons a:hover{
     transition: ease all 300ms;
-    color: #64cde8;
+    color: var(--color-links);
+}
+.user_content img{
+    margin-top: -100px;
+}
+.text-muted{
+    margin-right: 1.5rem;
+}
+.text-content{
+    text-align: start;
 }
 
-.text-muted{
-    margin-right: 1rem;
+.card-title{
+    font-weight: 600;
 }
+.card-text{
+    font-size: 15px;
+}
+
+/* @media screen and (max-width: 990px){
+    .user_content img{
+        margin-top: -220px;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .user_content img{
+        margin-top: -240px;
+    }
+}
+
+@media screen and (max-width: 512px){
+    .user_content img{
+        margin-top: -250px;
+    }
+}
+
+@media screen and (max-width: 412px){
+    .user_content img{
+        margin-top: -300px;
+    }
+}
+
+@media screen and (max-width: 393px){
+    .user_content img{
+        margin-top: -320px;
+    }
+}
+
+@media screen and (max-width: 360px){
+    .user_content img{
+        margin-top: -380px;
+    }
+} */
+
