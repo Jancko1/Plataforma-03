@@ -1,10 +1,8 @@
 import React from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 //REMIX ICONS
 import "remixicon/fonts/remixicon.css";
 
-
-
-import { useAuth0 } from "@auth0/auth0-react";
 //Bootstrap
 import "react-bootstrap";
 //STYLES CSS

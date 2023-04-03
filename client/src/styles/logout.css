@@ -1,3 +1,37 @@
+:root{
+    --color-white-text:#FEFBF6;
+    --color-blue-text-hover:#9AD0EC;
+}
+
+
 .container_nav{
     margin-top: -24px;
+    background: #20262E;
+}
+
+.container_items a{
+    color: var(--color-white-text) !important;
+    font-size: 18px;
+    margin: 0px 10px;
+}
+
+.container_items a:hover{
+    color: var(--color-blue-text-hover) !important;
+    border-radius: 10px;
+
+}
+.dropdown-menu{
+    background: #20262E !important;
+    border-radius: 0;
+}
+.dropdown-item {
+    font-size: 16px !important;
+    border: none;
+    background: transparent !important;
+}
+
+
+/*------------Menu Responsive*/
+.navbar-toggler{
+    background-color: var(--color-white-text)
 }

@@ -13,23 +13,21 @@ const LogoutButton = () => {
     <Navbar
       collapseOnSelect
       expand="lg"
-      bg="dark"
-      variant="dark"
       className="container_nav"
     >
-      <Container>
+      <Container className="container_items">
         <Navbar.Brand href="#home">Circuito-03</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="/dashboard">Perfil</Nav.Link>
-            <NavDropdown title="Instituciones" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Algo...</NavDropdown.Item>
+          <Nav className="m-auto items_link">
+            <Nav.Link href="/dashboard"> Perfil</Nav.Link>
+            <NavDropdown title="Instituciones" id="collasible-nav-dropdown" className="drop_menu">
+              <NavDropdown.Item href="#action/3.1">Sub-Menu</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">Sub-Menu</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Sub-Menu</NavDropdown.Item>
             </NavDropdown>
+            <Nav.Link href="#">Noticias</Nav.Link>
+            <Nav.Link href="#">Contacto</Nav.Link>
           </Nav>
           <Nav>
             <Nav.Link href="#deets" onClick={() =>
