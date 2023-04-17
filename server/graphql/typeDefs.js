@@ -8,6 +8,7 @@ export const typeDefs = gql`
 
     #----------------Inicio Query de posts---------------------------------
     posts: [Post]
+    users: [User]
 
     #----------------Inicio Query de posts---------------------------------
   }
@@ -18,7 +19,22 @@ export const typeDefs = gql`
     updateProject(_id: ID!, titulo: String!, description: String): Project
 
     #----------------Inicio Mutation de posts-------------------------------
-    createPost(titulo: String, descripcion: String, Imagenes: String, PostId: ID): Post
+    createPost(
+      titulo: String
+      descripcion: String
+      Imagenes: String
+      PostId: ID
+    ): Post
+
+    createUser (
+      userid: ID
+      fullname: String
+      username: String
+      password: String
+      role: String
+      direccion: String
+      telefono: String
+    ): User
     #----------------fin Mutation de posts----------------------------------
   }
   type Project {
@@ -36,5 +52,14 @@ export const typeDefs = gql`
     Imagenes: String
     createAt: String
     updateAt: String
+  }
+  type User {
+    _id: ID
+    fullname: String
+    username: String
+    password: String
+    rol: String
+    direccion: String
+    telefono: String
   }
 `;

@@ -1,6 +1,6 @@
 import Project from "../models/Project.js";
 import Post from "../models/Posts.js";
-
+import User from "../models/User.js";
 
 export const resolvers = {
   Query: {
@@ -11,6 +11,7 @@ export const resolvers = {
     //---------------------------Query post-------------------------------
 
     posts: async () => await Post.find(),
+    users: async () => await User.find(),
   },
   Mutation: {
     createProjet: async (_, { titulo, description }) => {
@@ -35,6 +36,11 @@ export const resolvers = {
       const post = new Post({ titulo, descripcion, Imagenes });
       const savedPost = await post.save();
       return savedPost;
+    },
+    createUser: async (_, { fullname, username, password, rol, direccion, telefono }) => {
+      const user = new User({ fullname, username, password, rol, direccion, telefono });
+      const savedUser = await user.save();
+      return savedUser;
     },
   },
 };

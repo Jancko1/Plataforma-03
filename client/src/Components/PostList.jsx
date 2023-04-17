@@ -15,7 +15,8 @@ const PostList = () => {
     <div>
       {data.posts.map((post) => (
         <PostCard key={post._id} post={post} />
-      ))}
+      )
+      )}
     </div>
   );
 };
