@@ -31,7 +31,7 @@ export const typeDefs = gql`
       fullname: String
       username: String
       password: String
-      role: String
+      rol: String
       direccion: String
       telefono: String
     ): User

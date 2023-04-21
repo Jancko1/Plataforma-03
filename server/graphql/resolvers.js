@@ -4,7 +4,7 @@ import User from "../models/User.js";
 
 export const resolvers = {
   Query: {
-    hello: () => "Hola amor",
+    hello: () => "Hola",
     projects: async () => await Project.find(),
     project: async (_, { _id }) => await Project.findById(_id),
 

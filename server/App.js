@@ -32,5 +32,5 @@ export async function startApolloServe(typeDefs, resolvers) {
     )
   );
   console.log("🚀  GraphQL on port: http://localhost:4000/graphql ✦");
-  console.log(`🚀  Server ready at http://localhost:4000`);
+  console.log(`🚀  Server ready at http://localhost:4000 ✦`);
 }

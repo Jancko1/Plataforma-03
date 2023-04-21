@@ -5,9 +5,9 @@ import {
   gql,
 } from "@apollo/client";
 //-----LOGIN-----//
-
+import Login from "./Components/Auth/Login";
 //-----REGISTER-----//
-import SingUp from "./Login/SingUp";
+import SignUp from "./Components/Auth/SignUp";
 //-----HOME-----//
 import Home from "./pages/Home";
 
@@ -28,8 +28,9 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/singUp" element={<SingUp />} />
             <Route path="/dashboard" element={<Profile />} />
+            <Route path="/inicio" element={<Login/>} />
+            <Route path="/register" element={<SignUp/>} />
           </Routes>
         </BrowserRouter>
       </ApolloProvider>
