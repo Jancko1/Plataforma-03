@@ -27,12 +27,12 @@ const PostCard = ({ post }) => {
                 />
                 <div className="text-content">
                   <h5 className="card-title mt-5">Nombre de usuario</h5>
-                  <h1 className="card-title">{post.titulo}</h1>
+                  <h1 className="card-title">{post.title}</h1>
                   <p className="card-text">{post.descripcion}</p>
                 </div>
               </div>
               <div className="d-flex justify-content-center mt-2">
-                <img src={post.Imagenes} alt="" className="img-fluid mb-3 " />
+                <img src={post.Imagen} alt="" className="img-fluid mb-3 " />
               </div>
               <hr />
               <div className="d-flex justify-content-between align-items-center">

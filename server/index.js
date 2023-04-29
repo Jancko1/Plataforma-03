@@ -1,8 +1,10 @@
-import { startApolloServe } from "./App.js";
-import {typeDefs} from './graphql/typeDefs.js'
+import { startApolloServer } from "./app.js";
+import { typeDefs } from "./graphql/typeDefs.js";
 import { resolvers } from "./graphql/resolvers.js";
-import {conenctDB} from './DB/db.js'
+import { connectDB } from "./DB/db.js";
 
-conenctDB()
+// Connect to database
+connectDB();
 
-startApolloServe(typeDefs, resolvers)
+// Start Apollo Server
+startApolloServer(typeDefs, resolvers);

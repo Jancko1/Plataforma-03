@@ -1,46 +1,82 @@
-import Project from "../models/Project.js";
-import Post from "../models/Posts.js";
-import User from "../models/User.js";
+import Users from "../models/Users.js";
+import Post from "../models/Post.js";
 
 export const resolvers = {
   Query: {
-    hello: () => "Hola",
-    projects: async () => await Project.find(),
-    project: async (_, { _id }) => await Project.findById(_id),
-
-    //---------------------------Query post-------------------------------
-
-    posts: async () => await Post.find(),
-    users: async () => await User.find(),
+    hello: () => "Esta es el servidor de la plataforma del Circuito 03",
+    users: async () => {
+      return await Users.find();
+    },
+    user: async (_, { _id }) => {
+      return await Users.findById(_id);
+    },
+    posts: async () => {
+      return await Post.find();
+    },
+    post: async (_, { _id }) => {
+      return await Post.findById(_id);
+    },
   },
   Mutation: {
-    createProjet: async (_, { titulo, description }) => {
-      const project = new Project({ titulo, description });
-      const savedProject = await project.save();
-      return savedProject;
-    },
-    deleteProject: async (_, { _id }) => {
-      const deleteProject = await Project.findByIdAndDelete(_id);
-      if (!deleteProject) throw new Error("Error not found");
-      return deleteProject;
-    },
-    updateProject: async (_, args) => {
-      const updatedProject = await Project.findByIdAndUpdate(args._id, args, {
-        new: true,
+    createUser: async (
+      _,
+      { fullname, username, password, rol, direccion, telefono }
+    ) => {
+      const user = new Users({
+        fullname,
+        username,
+        password,
+        rol,
+        direccion,
+        telefono,
       });
-      if (!updatedProject) throw new Error("Projec not found");
-      return updatedProject;
-    },
-
-    createPost: async (_, { titulo, descripcion, Imagenes }) => {
-      const post = new Post({ titulo, descripcion, Imagenes });
-      const savedPost = await post.save();
-      return savedPost;
-    },
-    createUser: async (_, { fullname, username, password, rol, direccion, telefono }) => {
-      const user = new User({ fullname, username, password, rol, direccion, telefono });
-      const savedUser = await user.save();
+      const savedUser = user.save();
       return savedUser;
     },
+    deleteUser: async (_, { _id }) => {
+      const deletedUser = await Users.findByIdAndDelete(_id);
+      if (!deletedUser) throw new Error("Users not found");
+      return deletedUser;
+    },
+    updateUser: async (_, args) => {
+      const updatedUser = await Users.findByIdAndUpdate(args._id, args, {
+        new: true,
+      });
+      if (!updatedUser) throw new Error("User not found");
+      return updatedUser;
+    },
+    createPost: async (_, { title, descripcion, Imagen, userId }) => {
+      const userFound = await Users.findById(userId);
+      if (!userFound) {
+        throw new Error("User not found");
+      }
+
+      const post = new Post({
+        title,
+        descripcion,
+        Imagen,
+        userId,
+      });
+      const savedPost = post.save();
+      return savedPost;
+    },
+    deletePost: async (_, { _id }) => {
+      const deletedPost = await Post.findByIdAndDelete(_id);
+      if (!deletedPost) throw new Error("Post not found");
+      return deletedPost;
+    },
+    updatePost: async (_, args) => {
+      const updatedPost = await Post.findByIdAndUpdate(args._id, args, {
+        new: true,
+      });
+      if (!updatedPost) throw new Error("Post not found");
+      return updatedPost;
+    },
   },
+  User: {
+	post: async (parent) => await Post.find({userId: parent._id})
+  },
+  Post: {
+	user: async (parent) => await Users.findById(parent.userId)
+  }
 };
