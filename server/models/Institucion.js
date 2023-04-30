@@ -20,3 +20,4 @@ const intitucionSchema = new mongoose.Schema({
     type:  String
   }
 });
+export default mongoose.model("institucion", intitucionSchema)
