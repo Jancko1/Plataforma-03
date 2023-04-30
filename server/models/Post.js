@@ -17,6 +17,10 @@ const PostSchema = new mongoose.Schema({
 		ref: 'Users',
 		required: true,
 	},
-},);
+	
+},{
+    timestamps: true,
+  }
+);
 
 export default mongoose.model('Post', PostSchema );

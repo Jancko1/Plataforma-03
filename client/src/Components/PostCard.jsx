@@ -1,5 +1,4 @@
 import React from "react";
-import { useAuth0 } from "@auth0/auth0-react";
 //REMIX ICONS
 import "remixicon/fonts/remixicon.css";
 
@@ -9,7 +8,7 @@ import "react-bootstrap";
 import "../styles/postCard.css";
 
 const PostCard = ({ post }) => {
-  const { user, isAuthenticated, isLoading } = useAuth0();
+  console.log(post.title)
   return (
     <div key={post._id} className="container mt-5  ">
       <div className="row justify-content-center ">
