@@ -1,7 +1,7 @@
 import React from "react";
 //Imagenes
 import wave from "../../img/wave.png";
-import bg from "../../img/loginUser.png";
+import bg from "../../img/fondo-login.png";
 import avatar from "../../img/user.png";
 //Remix icon
 import "remixicon/fonts/remixicon.css";
@@ -59,7 +59,7 @@ const Login = () => {
             </div>
           </div>
           <input type="submit" className="boton" value="Iniciar sesión" />
-          <a href="#">Registrarse aquí</a>
+          <a href="/register">Registrarse aquí</a>
           {/* AQUÍ DEBE REDIRECCIONAR AL REGISTRO */}
           <a href="#">¿Olvidaste la contraseña?</a>
           
