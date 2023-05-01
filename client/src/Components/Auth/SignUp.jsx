@@ -80,8 +80,7 @@ const SignUp = () => {
             </div>
           </div>
           <input type="submit" className="boton" value="Iniciar sesión" />
-          <a href="#">Registrarse aquí</a>
-          <a href="#">¿Olvidaste la contraseña?</a>
+          <a href="#">Iniciar sesión</a>
         </form>
       </div>
     </div>
