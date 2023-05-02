@@ -8,9 +8,15 @@ export const resolvers = {
     users: async () => {
       return await Users.find();
     },
-    user: async (_, { _id }) => {
-      return await Users.findById(_id);
+    user: async (_, {username, password}) => {
+      const user = await Users.findOne({ username, password });
+      if (!user) {
+        throw new Error('Usuario o contraseña incorrectos');
+      }
+      return user;
     },
+    
+    
     //----------------final Querys de user------------
 
     //----------------inicio Querys de post------------

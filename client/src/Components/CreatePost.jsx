@@ -11,7 +11,6 @@ const CreatePost = () => {
     descripcion: "",
     imagenes: "",
   });
-
   const [createPosts] = useMutation(CREATE_POST, {
     refetchQueries: [
       {
@@ -112,30 +111,28 @@ const CreatePost = () => {
             type="file"
             multiple
           />
-        </label> 
+        </label>
       </div>
     );
   }
   return (
-
-      <div className="container">
-        <div>{loading ? <div></div> : <UploadInput />}</div>
-        <form onSubmit={handelSubmitted}>
-          <div className="form-group">
-            <input type="text" name="titulo" id="" onChange={handelChange} />
-          </div>
-          <div className="form-control">
-            <textarea
-              name="descripcion"
-              id=""
-              rows="3"
-              onChange={handelChange}
-            ></textarea>
-          </div>
-            <button className="uploadButton btn btn-primary">enviar</button>
-        </form>
-      </div>
-
+    <div className="container">
+      <div>{loading ? <div></div> : <UploadInput />}</div>
+      <form onSubmit={handelSubmitted}>
+        <div className="form-group">
+          <input type="text" name="titulo" id="" onChange={handelChange} />
+        </div>
+        <div className="form-control">
+          <textarea
+            name="descripcion"
+            id=""
+            rows="3"
+            onChange={handelChange}
+          ></textarea>
+        </div>
+        <button className="uploadButton btn btn-primary">enviar</button>
+      </form>
+    </div>
   );
 };
 

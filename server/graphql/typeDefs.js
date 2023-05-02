@@ -5,7 +5,7 @@ export const typeDefs = gql`
     hello: String
     #-----------inicio Query de Users-----------
     users: [User]
-    user(_id: ID!): User
+    user(username: String, password: String): User
     #-----------final Query de Users-----------
 
     #-----------inicio Query de Post-----------

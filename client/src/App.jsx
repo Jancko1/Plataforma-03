@@ -5,7 +5,7 @@ import {
   gql,
 } from "@apollo/client";
 //-----LOGIN-----//
-import Login from "./Components/Auth/Login";
+import Login  from "./Components/Auth/Login";
 //-----REGISTER-----//
 import SignUp from "./Components/Auth/SignUp";
 //-----HOME-----//
@@ -21,16 +21,16 @@ const client = new ApolloClient({
 });
 
 function App() {
-   
   return (
+
     <>
       <ApolloProvider client={client}>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Login />} />
             <Route path="/dashboard" element={<Profile />} />
-            <Route path="/inicio" element={<Login/>} />
-            <Route path="/register" element={<SignUp/>} />
+            <Route path="/inicio" element={<Home />} />
+            <Route path="/register" element={<SignUp />} />
           </Routes>
         </BrowserRouter>
       </ApolloProvider>
