@@ -11,6 +11,8 @@ import SignUp from "./Components/Auth/SignUp";
 //-----HOME-----//
 import Home from "./pages/Home";
 
+import {useSelector} from 'react-redux'
+
 //-----Dashboard-----//
 import Profile from "./Components/Profile";
 import { BrowserRouter, Routes, Route, Router } from "react-router-dom";
@@ -21,9 +23,11 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const user = useSelector((state) => state.user)
   return (
 
     <>
+    <h1>{user.fullname}</h1>
       <ApolloProvider client={client}>
         <BrowserRouter>
           <Routes>

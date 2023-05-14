@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Loading from "../Loading";
 import {Navigate} from "react-router-dom"
 //validación de usuario
@@ -15,23 +15,27 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 //ESTILOS CSS
 import "../../styles/Login.css";
+import {useDispatch} from "react-redux"
 
 
 const Login = () => {
+  const dispatch = useDispatch()
   
   //Consultas ala base de datos
   const [uservalid, setUservalid] = useState({
     username: "",
     password: "",
   });
-  const { loading, error, data } = useQuery(VALID_USER, {
+
+  const { loading, error, data } = useQuery(VALID_USER,
+    {
     variables: {
       username: uservalid.username,
       password: uservalid.password,
     },
-  });
+  }
+  );
   
-
   //Animacion al clickear un input
   const inputs = document.querySelectorAll(".input");
   function addcl() {
@@ -62,7 +66,6 @@ const Login = () => {
       window.location.href = "/"
     } else {
       window.location.href = `/inicio`
-
     }
   }
   return (
