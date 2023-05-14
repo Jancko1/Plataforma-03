@@ -3,38 +3,54 @@ import { gql } from "graphql-tag";
 export const typeDefs = gql`
   type Query {
     hello: String
-    projects: [Project]
-    project(_id: ID!): Project
+    #-----------inicio Query de Users-----------
+    users: [User]
+    user(username: String, password: String): User
+    #-----------final Query de Users-----------
 
-    #----------------Inicio Query de posts---------------------------------
+    #-----------inicio Query de Post-----------
     posts: [Post]
-
-    #----------------Inicio Query de posts---------------------------------
+    post(_id: ID!): Post
+    #-----------final Query de Post-----------
   }
 
   type Mutation {
-    createProjet(titulo: String, description: String): Project
-    deleteProject(_id: ID!): Project
-    updateProject(_id: ID!, titulo: String!, description: String): Project
+    #----------Inicio de Mutation de Users-----------
+    createUser(fullname: String, username: String, password: String, rol: String, telefono: String, direccion: String): User
+    updateUser(_id: ID, name: String, fullname: String, username: String, password: String, rol: String, telefono: String, direccion: String): User
+    deleteUser(_id: ID): User
+    #----------Final de Mutation de Users-----------
 
-    #----------------Inicio Mutation de posts-------------------------------
-    createPost(titulo: String, descripcion: String, Imagenes: String, PostId: ID): Post
-    #----------------fin Mutation de posts----------------------------------
+    #----------Inicio de Mutation de Post-----------
+    createPost(title: String, descripcion: String, Imagen: String, userId: ID): Post
+    updatePost(_id: ID, title: String, descripcion: String, Imagen: String, userId: ID): Post
+    deletePost(_id: ID): Post
+    #----------Final de Mutation de Post-----------
   }
-  type Project {
+  #------------Info de User-----------
+  type User {
     _id: ID
-    titulo: String
-    description: String
-    createAt: String
-    updateAt: String
+    fullname: String
+    username: String
+    password: String
+    rol: String
+    telefono: String
+    direccion: String
+    createdAt: String
+    updatedAt: String
+    post: [Post]
   }
-  #
+
+
+  #------------Info de Post------------
   type Post {
     _id: ID
-    titulo: String
+    title: String
     descripcion: String
-    Imagenes: String
-    createAt: String
-    updateAt: String
+    Imagen: String
+    userId: String
+    user: User
+    createdAt: String
+    updatedAt: String
   }
 `;

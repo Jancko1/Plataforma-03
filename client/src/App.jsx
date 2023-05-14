@@ -5,11 +5,16 @@ import {
   gql,
 } from "@apollo/client";
 //-----LOGIN-----//
-import Login from "./Login/Login";
+import Login  from "./Components/Auth/Login";
 //-----REGISTER-----//
-import SingUp from "./Login/SingUp";
+import SignUp from "./Components/Auth/SignUp";
 //-----HOME-----//
 import Home from "./pages/Home";
+
+import {useSelector} from 'react-redux'
+
+//-----Dashboard-----//
+import Profile from "./Components/Profile";
 import { BrowserRouter, Routes, Route, Router } from "react-router-dom";
 
 const client = new ApolloClient({
@@ -18,14 +23,18 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const user = useSelector((state) => state.user)
   return (
+
     <>
+    <h1>{user.fullname}</h1>
       <ApolloProvider client={client}>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/singIn" element={<Login />} />
-            <Route path="/singUp" element={<SingUp />} />
+            <Route path="/" element={<Login />} />
+            <Route path="/dashboard" element={<Profile />} />
+            <Route path="/inicio" element={<Home />} />
+            <Route path="/register" element={<SignUp />} />
           </Routes>
         </BrowserRouter>
       </ApolloProvider>

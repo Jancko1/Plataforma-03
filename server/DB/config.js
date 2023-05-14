@@ -1,1 +1,7 @@
-export const MONGO_URI = 'mongodb+srv://plataformacircuito03:dUqqZfrMT17NG1z0@db-circuito-03.obf7mu1.mongodb.net/post-collection';
+import { config } from "dotenv";
+
+config();
+
+export const MONGODB_URI =
+  process.env.MONGODB_URI || "mongodb+srv://andrey:Yz2z1JGllrqWmz0C@cluster0.x2min4z.mongodb.net/?retryWrites=true&w=majority";
+

@@ -1,37 +1,13 @@
 import React from "react";
 import CreatePost from "../Components/CreatePost";
 import PostList from "../Components/PostList";
-//Parallax.js
-import { useState, useEffect } from "react";
-import "../styles/home.css";
-
-
-
-const useParallaxBanner = (setScrollPosition) => {
-  const handleScroll = () => setScrollPosition(window.pageXOffset);
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-};
+import Navdes from "../Components/Navdes";
 export const Home = () => {
-  const [scrollPosition, setScrollPosition] = useState(0);
-  useParallaxBanner(setScrollPosition);
   return (
     <>
-      <section
-        style={{
-          backgroundSize: `${(window.outerHeight - scrollPosition) / 3}%`,
-        }}
-        className="banner"
-      >
-        <h2>Parallax</h2>
-      <a href="/singUp">Iniciar session</a>
-      <PostList />
-      <CreatePost />
-      </section>
+        <><Navdes/><CreatePost /><PostList /></>
+     
     </>
   );
 };
-
 export default Home;
