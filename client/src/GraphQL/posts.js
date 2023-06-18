@@ -11,15 +11,23 @@ export const GET_POST = gql`
 `;
 
 export const CREATE_POST = gql`
-  mutation ($titulo: String, $descripcion: String, $imagenes: String) {
+  mutation (
+    $title: String
+    $descripcion: String
+    $imagen: String
+    $userId: ID
+  ) {
     createPost(
-      titulo: $titulo
+      title: $title
       descripcion: $descripcion
-      Imagenes: $imagenes
+      Imagen: $imagen
+      userId: $userId
     ) {
-      titulo
+      _id
+      title
       descripcion
-      Imagenes
+      Imagen
+      userId
     }
   }
 `;

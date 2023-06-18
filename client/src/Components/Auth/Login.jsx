@@ -1,73 +1,55 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Loading from "../Loading";
-import {Navigate} from "react-router-dom"
-//validación de usuario
 import { VALID_USER } from "../../GraphQL/users";
 import { useQuery } from "@apollo/client";
-//Imagenes
 import wave from "../../img/wave.png";
 import bg from "../../img/fondo-login.png";
 import avatar from "../../img/user.png";
-//Remix icon
 import "remixicon/fonts/remixicon.css";
-//Tostify icon
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-//ESTILOS CSS
 import "../../styles/Login.css";
-import {useDispatch} from "react-redux"
-
+import { useDispatch } from "react-redux";
+import { setUser } from "../../redux/store"; // Asegúrate de importar la acción setUser desde tu archivo store.js}
+import { redirect } from "react-router-dom";
 
 const Login = () => {
-  const dispatch = useDispatch()
-  
-  //Consultas ala base de datos
+  const dispatch = useDispatch();
+  const [redirect, setRedirect] = useState(null);
+
   const [uservalid, setUservalid] = useState({
     username: "",
     password: "",
   });
 
-  const { loading, error, data } = useQuery(VALID_USER,
-    {
+  const { loading, error, data } = useQuery(VALID_USER, {
     variables: {
       username: uservalid.username,
       password: uservalid.password,
     },
-  }
-  );
-  
-  //Animacion al clickear un input
-  const inputs = document.querySelectorAll(".input");
-  function addcl() {
-    let parent = this.parentNode.parentNode;
-    parent.classList.add("focus");
-  }
-  function remcl() {
-    let parent = this.parentNode.parentNode;
-    if (this.value == "") {
-      parent.classList.remove("focus");
-    }
-  }
-
-  inputs.forEach((input) => {
-    input.addEventListener("focus", addcl);
-    input.addEventListener("blur", remcl);
+    onCompleted: (data) => {
+      // Cuando la consulta se complete, guarda los datos del usuario en el estado global
+      if (data && data.user) {
+        dispatch(setUser(data.user));
+      }
+    },
   });
+
   const handleChange = ({ target: { name, value } }) => {
     setUservalid({
       ...uservalid,
       [name]: value,
     });
   };
-  const [red, setRed] = useState(true);
+
   const handleClick = () => {
-    // Cambia la URL actual a la nueva página que deseas cargar
     if (!data) {
-      window.location.href = "/"
+      window.history.pushState({}, "", "/");
     } else {
-      window.location.href = `/inicio`
+      window.history.pushState({}, "", "/inicio");
     }
-  }
+    window.dispatchEvent(new PopStateEvent("popstate"));
+  };
   return (
     <div className="container">
       <img src={wave} className="wave" alt="" />
@@ -75,25 +57,23 @@ const Login = () => {
         <img src={bg} alt="" />
       </div>
       <div className="login-content">
-        <form onSubmit={e => e.preventDefault()}>
+        <form onSubmit={(e) => e.preventDefault()}>
           <img src={avatar} alt="" />
           <h2 className="title">Bienvenido</h2>
           <div className="input-div one">
-            {/* ------------USUARIO------------ */}
             <div className="i">
               <i class="ri-user-fill"></i>
             </div>
             <div className="div">
               <h5>Correo electrónico</h5>
               <input
-                type="text"a
+                type="text"
                 className="input"
                 name="username"
                 onChange={handleChange}
               />
             </div>
           </div>
-          {/* ------------CONTRASEÑA------------ */}
           <div className="input-div pass">
             <div className="i">
               <i className="ri-lock-fill"></i>
@@ -116,7 +96,6 @@ const Login = () => {
           />
           <a href="/register">Registrarse aquí</a>
           <ToastContainer />
-          {/* AQUÍ DEBE REDIRECCIONAR AL REGISTRO */}
           <a href="#">¿Olvidaste la contraseña?</a>
         </form>
         {loading && <Loading />}

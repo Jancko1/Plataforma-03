@@ -1,12 +1,15 @@
 import React from "react";
 import CreatePost from "../Components/CreatePost";
 import PostList from "../Components/PostList";
-import Navdes from "../Components/Navdes";
+import { useSelector } from 'react-redux';
 export const Home = () => {
+  const user = useSelector((state) => state.user);
   return (
     <>
-        <><Navdes/><CreatePost /><PostList /></>
-     
+      <>
+      <h1>Bienvenido, {user.fullname}</h1>
+        {/* <PostList /> */}
+      </>
     </>
   );
 };

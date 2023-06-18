@@ -63,6 +63,12 @@ const SignUp = () => {
     input.addEventListener("blur", remcl);
   });
 
+  if (!data) {
+    
+  } else {
+    window.location.href = "/"
+  }
+
   return (
     <div className="container">
       <img src={wave} className="wave" alt="" />

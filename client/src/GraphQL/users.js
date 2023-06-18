@@ -30,6 +30,7 @@ export const CREATE_USER = gql`
 export const VALID_USER = gql`
   query ($username: String, $password: String) {
     user(username: $username, password: $password) {
+      _id
       fullname
       username
       rol
